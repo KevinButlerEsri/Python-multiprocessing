@@ -1,0 +1,8 @@
+In a previous article for IBM® developerWorks®, I demonstrated a simple and effective pattern for implementing threaded programming in Python. One downside of this approach, though, is that it won't always speed up your application, because the GIL (global interpreter lock) effectively limits threads to one core. If you need to use all of the cores on your machine, then typically you will need to fork processes, to increase speed. Dealing with a flock of processes can be a challenge, because if communication between
+processes is needed, it can often get complicated to coordinate all of the calls. Fortunately,
+as of version 2.6, Python includes a module called "multiprocessing" to help you deal
+with processes. The API of the processing module has some similarities to the way the
+threading API works, but there are also few differences to keep in mind. One of the main
+differences is that processes have subtle underlying behavior that a high-level API will
+never be able to completely abstract away. You can read more about this in the official
+documentation for the multiprocessing module (see the Resources section).
